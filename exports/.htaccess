@@ -1,0 +1,7 @@
+Options -Indexes
+
+# Defense in depth: even if a malicious script somehow got uploaded here,
+# the server must never execute it as PHP - only serve it as a plain file.
+<FilesMatch "\.(php|phtml|php3|php4|php5|phar|pl|py|cgi|asp|aspx|exe|sh)$">
+    Require all denied
+</FilesMatch>

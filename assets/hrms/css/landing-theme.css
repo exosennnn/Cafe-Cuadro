@@ -1,0 +1,363 @@
+/* ============================================
+   Café Cuadro — Landing Page Theme
+   Warm Purr'Coffee Aesthetic
+   Scoped to body.grayscale-page (index.php only)
+   ============================================ */
+
+body.grayscale-page {
+  --gs-primary: #ea7a3b;        /* warm terracotta primary */
+  --gs-primary-light: #f59e6c;
+  --gs-primary-dark: #2b1f1d;   /* rich espresso */
+  --gs-primary-darker: #1e1615; /* footer / deepest espresso */
+  --gs-ink: #1e2022;
+  --gs-ink-soft: #6c757d;
+  --gs-font-display: "Inter", sans-serif;
+  --gs-font-body: "Inter", sans-serif;
+  background-color: #faf6f0;
+  font-family: var(--gs-font-body);
+}
+
+/* ---------- Typography ---------- */
+.grayscale-page .masthead h1,
+.grayscale-page h2,
+.grayscale-page h4,
+.grayscale-page .btn {
+  font-family: var(--gs-font-display);
+}
+.grayscale-page .btn {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 50px;
+}
+
+/* ---------- Navbar — glass ---------- */
+#mainNav {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid rgba(240, 232, 224, 0.8);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+#mainNav .nav-link {
+  color: var(--gs-ink) !important;
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-radius: 50px;
+  padding: 0.5rem 1.1rem;
+  transition: all 0.2s ease;
+}
+#mainNav .nav-link:hover {
+  color: var(--gs-primary) !important;
+  background: rgba(234, 122, 59, 0.08);
+}
+#mainNav.navbar-shrink {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(43, 31, 29, 0.06);
+  border-bottom-color: #f0e8e0;
+}
+#mainNav .navbar-collapse {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 16px;
+}
+@media (min-width: 992px) {
+  #mainNav .navbar-collapse { background-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+#mainNav .navbar-toggler {
+  border-color: var(--gs-primary);
+  color: var(--gs-primary);
+  border-radius: 12px;
+}
+#mainNav.navbar-shrink .navbar-toggler {
+  border-color: var(--gs-primary);
+  color: var(--gs-primary);
+}
+
+/* ---------- Normal scroll layout ---------- */
+body.grayscale-page {
+  /* height: 100%; overflow: hidden; (removed for scroll) */
+}
+.app-view {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+.page-section {
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  position: relative !important;
+}
+.page-section.about-section,
+.page-section.projects-section,
+.page-section.signup-section {
+  min-height: auto; /* Allow content to dictate height */
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+#mainNav .nav-link.active {
+  color: #ffffff !important;
+  background: var(--gs-primary);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(234, 122, 59, 0.28);
+}
+
+
+/* ---------- Slim persistent footer bar ---------- */
+.site-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1035;
+  padding: 0.65rem 0 !important;
+  background: rgba(30, 22, 21, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* ---------- Masthead / Hero — warm espresso & terracotta gradient ---------- */
+.masthead {
+  background: linear-gradient(160deg, rgba(30, 22, 21, 0.93) 0%, rgba(54, 38, 35, 0.88) 45%, rgba(234, 122, 59, 0.82) 100%), url("../img/bg-hero-coffee.jpg");
+  background-blend-mode: multiply;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.masthead h1 {
+  font-family: var(--gs-font-display);
+  font-weight: 800;
+  letter-spacing: 0.15rem;
+  background: linear-gradient(rgba(255,255,255,0.98), rgba(255,255,255,0.7));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.masthead h2 {
+  font-family: var(--gs-font-body);
+  font-weight: 400;
+}
+.masthead h1, .masthead h2, .masthead .btn {
+  animation: gsFadeUp 0.7s ease both;
+}
+.masthead h2 { animation-delay: 0.12s; }
+.masthead .btn { animation-delay: 0.24s; }
+
+/* Primary customer action in the hero */
+.grayscale-page .masthead .order-now-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-height: 3.5rem;
+  padding: 0.9rem 2.25rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.12rem;
+  box-shadow: 0 8px 24px rgba(234, 122, 59, 0.38);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+.grayscale-page .masthead .order-now-cta:hover,
+.grayscale-page .masthead .order-now-cta:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(234, 122, 59, 0.5) !important;
+}
+.grayscale-page .masthead .order-now-cta:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+@media (max-width: 575.98px) {
+  .grayscale-page .masthead .order-now-cta {
+    min-width: min(100%, 17rem);
+    min-height: 3.25rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grayscale-page .masthead .order-now-cta { transition: none; }
+}
+
+/* Warm Pill buttons */
+.grayscale-page .btn-primary {
+  background: var(--gs-primary) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--gs-primary) !important;
+  border-radius: 50px;
+  box-shadow: 0 4px 14px rgba(234, 122, 59, 0.28);
+  font-weight: 700;
+  padding: 0.6rem 1.6rem;
+  transition: all 0.2s ease;
+}
+.grayscale-page .btn-primary:hover,
+.grayscale-page .btn-primary:focus,
+.grayscale-page .btn-primary:active {
+  background: #d96828 !important;
+  border-color: #d96828 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(234, 122, 59, 0.38) !important;
+}
+
+.grayscale-page .btn-outline-primary {
+  color: var(--gs-primary) !important;
+  border: 1.5px solid var(--gs-primary) !important;
+  background: transparent !important;
+  border-radius: 50px;
+  font-weight: 600;
+  padding: 0.5rem 1.4rem;
+  transition: all 0.2s ease;
+}
+.grayscale-page .btn-outline-primary:hover {
+  background: var(--gs-primary) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(234, 122, 59, 0.25);
+}
+
+@keyframes gsFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- About — warm soft canvas ---------- */
+.about-section {
+  background: linear-gradient(180deg, #faf6f0 0%, #ffffff 50%, #f7f0e7 100%);
+}
+.about-section .about-icon {
+  color: var(--gs-primary);
+  font-size: 3rem;
+  background: rgba(234, 122, 59, 0.12);
+  width: 5.5rem;
+  height: 5.5rem;
+  line-height: 5.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-section h2 { color: var(--gs-primary-dark); font-weight: 800; }
+.about-section p { color: var(--gs-ink-soft); font-size: 1.05rem; line-height: 1.7; }
+
+/* ---------- Careers — clean card grid ---------- */
+.projects-section {
+  background: linear-gradient(180deg, #faf6f0 0%, #f4ede4 100%);
+}
+.projects-section .careers-icon-badge {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--gs-primary-light), var(--gs-primary));
+  box-shadow: 0 10px 24px rgba(234, 122, 59, 0.25);
+}
+.projects-section .careers-heading h4 {
+  color: var(--gs-primary-dark);
+  font-weight: 800;
+  margin-top: 0.5rem;
+}
+.projects-section .careers-heading p { color: var(--gs-ink-soft); }
+
+.projects-section .job-card {
+  background: #ffffff;
+  border: 1px solid #f0e8e0;
+  border-top: 4px solid var(--gs-primary);
+  border-radius: 22px;
+  padding: 1.85rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(43, 31, 29, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.projects-section .job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(234, 122, 59, 0.15);
+}
+.projects-section .job-card-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: var(--gs-primary);
+  background: rgba(234, 122, 59, 0.1);
+}
+.projects-section .job-card h4 { color: var(--gs-primary-dark); font-weight: 700; font-size: 1.1rem; }
+.projects-section .job-card p { color: var(--gs-ink-soft); }
+.projects-section .job-card p i { color: var(--gs-primary); }
+
+/* ---------- Staff Login section ---------- */
+.signup-section {
+  background: linear-gradient(180deg, #faf6f0 0%, #f4ede4 100%);
+}
+.signup-section .glass-panel {
+  background: #ffffff;
+  border: 1px solid #f0e8e0;
+  border-radius: 26px;
+  padding: 2.75rem 2.25rem;
+  box-shadow: 0 14px 40px rgba(43, 31, 29, 0.08);
+}
+.signup-section .glass-panel i.fa-right-to-bracket {
+  color: var(--gs-primary) !important;
+}
+.signup-section .glass-panel h2 {
+  color: var(--gs-primary-dark) !important;
+  font-weight: 800;
+}
+.signup-section .glass-panel p.text-white-50 {
+  color: var(--gs-ink-soft) !important;
+}
+.signup-section .form-signup label {
+  color: #2b1f1d !important;
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 0.35rem;
+}
+.signup-section .form-signup a.text-white-50 {
+  color: var(--gs-primary) !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+.signup-section .form-signup a.text-white-50:hover {
+  text-decoration: underline;
+}
+.signup-section .form-signup input,
+.signup-section .form-signup .form-control {
+  background: #ffffff;
+  border: 1.5px solid #ebdcd0;
+  border-radius: 50px;
+  padding: 0.65rem 1.25rem;
+  color: var(--gs-ink);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+.signup-section .form-signup .form-control:focus {
+  border-color: var(--gs-primary) !important;
+  box-shadow: 0 0 0 3px rgba(234, 122, 59, 0.2) !important;
+  outline: none;
+}
+
+/* ---------- Footer ---------- */
+.landing-footer {
+  background: var(--gs-primary-darker);
+}
+
+/* ---------- Modals ---------- */
+#loginSuccessModal .modal-content,
+#logoutSuccessModal .modal-content {
+  border-top: 4px solid var(--gs-primary);
+  border-radius: 24px;
+}
+

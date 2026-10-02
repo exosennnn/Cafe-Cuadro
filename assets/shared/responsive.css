@@ -1,0 +1,179 @@
+/* ==========================================================================
+   RESPONSIVE LAYER — loaded LAST on every page (main app, POS, kiosk,
+   login / apply / status pages). Breakpoints follow Bootstrap:
+     < 576px  phones      576–767px  large phones / small tablets
+     768–991px tablets    >= 992px   desktop (sidebar docked)
+   ========================================================================== */
+
+:root { --nav-h: 60px; }
+
+html { -webkit-text-size-adjust: 100%; }
+img, video, canvas, svg { max-width: 100%; height: auto; }
+canvas { max-width: 100% !important; }
+body { overflow-x: hidden; }
+
+/* Use the *visible* viewport height on phones (100vh is taller than the
+   screen when the mobile browser toolbar is showing). */
+.app-wrapper { min-height: calc(100vh - var(--nav-h)); min-height: calc(100dvh - var(--nav-h)); }
+.app-sidebar { min-height: calc(100vh - var(--nav-h)); min-height: calc(100dvh - var(--nav-h)); }
+
+/* Shared sidebar overlay (tap outside to close). Works for every shell. */
+.sidebar-overlay {
+  display: none; position: fixed; inset: var(--nav-h) 0 0 0;
+  background: rgba(42,24,16, .45); z-index: 1015;
+}
+.sidebar-overlay.show { display: block; }
+
+/* Wide things scroll inside themselves instead of breaking the page */
+.table-responsive, .table-wrap { -webkit-overflow-scrolling: touch; }
+.app-content pre, .main pre { max-width: 100%; overflow-x: auto; }
+.dataTables_wrapper { max-width: 100%; overflow-x: auto; }
+
+/* ------------------------------ TABLETS & DOWN ------------------------------ */
+@media (max-width: 991.98px) {
+  /* Sidebar is an off-canvas drawer: cap its width, keep it scrollable */
+  .app-sidebar {
+    top: var(--nav-h) !important;
+    height: calc(100vh - var(--nav-h)); height: calc(100dvh - var(--nav-h));
+    max-width: 85vw; overflow-y: auto; overscroll-behavior: contain;
+  }
+  body.sidebar-open { overflow: hidden; }
+
+  /* unified.css forces 1.5rem padding with !important — scale it down */
+  .app-content, .main { padding: 1rem !important; }
+
+  /* Toolbars / page headers: let title + actions wrap instead of overflow */
+  .app-content > .d-flex,
+  .app-content .card-header.d-flex,
+  .app-content .page-header,
+  .main .page-header, .main .toolbar {
+    flex-wrap: wrap; gap: .5rem;
+  }
+  .app-content .btn-group { flex-wrap: wrap; }
+
+  /* Stat / KPI cards: 2-up on tablets */
+  .grid.cards { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+
+  /* Bigger touch targets */
+  .app-sidebar .nav-link { padding: 12px 14px; }
+  .btn { min-height: 38px; }
+  .dropdown-item { padding-top: .6rem; padding-bottom: .6rem; }
+
+  /* Modals: use the screen, keep a small gutter */
+  .modal-dialog:not(.modal-fullscreen) { margin: .75rem auto; max-width: calc(100vw - 1.5rem); }
+  .modal-dialog-scrollable .modal-body { -webkit-overflow-scrolling: touch; }
+
+  /* Multi-column form rows that used fixed widths */
+  .app-content [style*="min-width:220px"], .app-content [style*="min-width: 220px"] { min-width: 0 !important; }
+  .app-content .table th, .app-content .table td { white-space: nowrap; }
+  .app-content .table td.text-wrap, .app-content .table th.text-wrap { white-space: normal; }
+}
+
+/* ------------------------------ PHONES ------------------------------ */
+@media (max-width: 575.98px) {
+  :root { --nav-h: 56px; }
+  .app-navbar { min-height: var(--nav-h); }
+  .app-navbar > .container-fluid { flex-wrap: nowrap; gap: .25rem; padding-left: .5rem; padding-right: .5rem; }
+  .app-navbar .ms-auto { gap: .6rem !important; min-width: 0; }
+  .app-navbar .navbar-brand { margin-right: 0; min-width: 0; }
+  .app-navbar .badge { font-size: .65rem; }
+
+  /* Notification / user menus become a full-width sheet under the navbar
+     so they never run off the left edge of a small screen. */
+  .app-navbar .dropdown-menu.show {
+    position: fixed !important; inset: var(--nav-h) .5rem auto .5rem !important;
+    width: auto !important; max-width: none !important; transform: none !important;
+    max-height: calc(100dvh - var(--nav-h) - 1rem); overflow-y: auto;
+  }
+
+  .app-content, .main { padding: .75rem !important; }
+  h1, .h1 { font-size: 1.6rem; } h2, .h2 { font-size: 1.4rem; }
+  h3, .h3 { font-size: 1.25rem; } h4, .h4 { font-size: 1.15rem; }
+
+  /* 16px inputs stop iOS Safari from zooming in when a field is focused */
+  .form-control, .form-select, input, select, textarea { font-size: 16px !important; }
+
+  /* Action buttons in cards/forms go full-width and stack */
+  .app-content form .btn[type="submit"]:only-child { width: 100%; }
+  .modal-footer { flex-wrap: wrap; }
+  .modal-footer .btn { flex: 1 1 auto; }
+
+  /* Stat cards: single column */
+  .grid.cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-card, .kpi-card { padding: 12px 14px; }
+
+  .card-body { padding: .9rem; }
+  .table { font-size: .82rem; }
+  .pagination { flex-wrap: wrap; }
+  .nav-tabs { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; white-space: nowrap; }
+  .nav-tabs .nav-link { padding: 8px 12px; }
+
+  footer { font-size: .75rem; }
+}
+
+/* Very small phones */
+@media (max-width: 359.98px) {
+  .grid.cards { grid-template-columns: 1fr; }
+}
+
+/* ---------------- Landing (index.php single-view pages) ---------------- */
+body.grayscale-page .app-view,
+body.grayscale-page .page-section { height: 100vh; height: 100dvh; }
+body.grayscale-page .page-section.about-section,
+body.grayscale-page .page-section.projects-section { min-height: 100vh; min-height: 100dvh; }
+@media (max-width: 991.98px) {
+  body.grayscale-page .page-section { padding-bottom: 4.5rem !important; }
+  body.grayscale-page .masthead h1 { font-size: clamp(2.2rem, 11vw, 4rem); line-height: 1.1; letter-spacing: .15rem; }
+  body.grayscale-page .projects-section .project-text { padding: 1.5rem; }
+  body.grayscale-page .projects-section .project,
+  body.grayscale-page .projects-section .project-icon-block { min-height: 12rem; }
+}
+
+/* ---------------- Standalone forms (register / apply / status) ---------------- */
+@media (max-width: 575.98px) {
+  body.apply-page .doc-row .col-md-4, body.apply-page .doc-row .col-md-8 { width: 100%; }
+  .card[style*="max-width"], [style*="max-width:640px"], [style*="max-width:720px"],
+  [style*="max-width:560px"], [style*="max-width:520px"] { width: 100%; }
+}
+
+/* ---------------- POS ---------------- */
+@media (max-width: 991.98px) {
+  .two-col { grid-template-columns: minmax(0, 1fr) !important; }
+  .product-grid-new { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important; gap: 10px; }
+  #cart-panel { position: static !important; }
+  .cat-tabs { flex-wrap: nowrap !important; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+  .cat-tabs > * { flex: 0 0 auto; }
+  .form-grid { flex-wrap: wrap; }
+  .form-grid > * { flex: 1 1 100% !important; min-width: 0 !important; }
+}
+@media (max-width: 575.98px) {
+  .product-grid-new { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .swal2-popup { width: 92vw !important; }
+}
+
+/* ---------------- Kiosk (customer self-order) ---------------- */
+@media (max-width: 767.98px) {
+  .kiosk-main { padding: 14px !important; }
+  .kiosk-btn { min-height: 48px; }
+  [style*="min-width:180px"], [style*="min-width:220px"] { min-width: 0 !important; }
+}
+
+/* Landscape phones: don't let the sticky navbar eat the screen */
+@media (max-height: 480px) and (orientation: landscape) {
+  .app-navbar { min-height: 48px; } :root { --nav-h: 48px; }
+}
+
+@media print {
+  .sidebar-overlay { display: none !important; }
+  .app-content, .main { padding: 0 !important; }
+}
+
+/* Kiosk chrome on phones */
+@media (max-width: 575.98px) {
+  .kiosk-topbar { padding: 10px 12px !important; flex-wrap: wrap; }
+  .kiosk-brand { font-size: 16px !important; min-width: 0; }
+  .kiosk-brand .logo { width: 38px !important; height: 38px !important; }
+  .kiosk-back-btn, .kiosk-cart-btn { padding: 8px 14px !important; }
+  .kiosk-title { font-size: 22px !important; }
+  .kiosk-card { padding: 14px !important; }
+}

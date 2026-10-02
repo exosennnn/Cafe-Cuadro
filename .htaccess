@@ -1,0 +1,22 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /
+
+# Protect sensitive directories from direct browser access
+RewriteRule ^(config|database|includes|libs|_retired|exports)(\/.*)?$ - [F,L,NC]
+
+# Protect sensitive files
+RewriteRule \.(sql|lock|json|md|log|ini|git)$ - [F,L,NC]
+
+# Allow direct access to existing non-PHP static files (CSS, JS, images, fonts, uploads)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} !\.php$ [NC]
+RewriteRule ^ - [L]
+
+# Block direct browser access to any .php files
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+[^?\s]*\.php[?\s] [NC]
+RewriteRule \.php$ - [F,L]
+
+# Route all requests through the clean URL router
+RewriteCond %{REQUEST_URI} !^/unified/router\.php$ [NC]
+RewriteRule ^(.*)$ router.php [L,QSA]

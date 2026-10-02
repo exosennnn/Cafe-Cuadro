@@ -1,0 +1,4 @@
+# Hindi dapat mabuksan ng browser ang folder na ito.
+# Ang PHP files dito ay ginagamit lang ng ibang PHP (require/include),
+# at hindi apektado ng rule na ito.
+Require all denied

@@ -1,0 +1,51 @@
+/* ============================================
+   Employee Portal Theme — Purr'Coffee Cafe System
+   ============================================ */
+
+body.employee-theme {
+  --emp-font-heading: 'Inter', sans-serif;
+  --emp-font-body: 'Inter', sans-serif;
+
+  --emp-blue: #5e6b46;
+  --emp-blue-light: #7d8b62;
+  --emp-navy: #2a1810;
+  --emp-navy-deep: #1d100a;
+  --emp-ink: #2a1810;
+  --emp-ink-soft: #7a6558;
+
+  --emp-success: #16a34a;
+  --emp-warning: #d97706;
+  --emp-danger: #dc2626;
+
+  background: var(--bg-canvas, #f5ebdd) !important;
+  color: var(--emp-ink) !important;
+  font-family: var(--emp-font-body);
+  min-height: 100vh;
+}
+
+body.employee-theme .app-navbar {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e6d8c5 !important;
+  box-shadow: 0 2px 14px rgba(120,90,60, 0.07) !important;
+}
+
+body.employee-theme .dashboard-stat-card {
+  background: #ffffff !important;
+  border: 1px solid #e6d8c5 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 4px 18px rgba(120,90,60, 0.07) !important;
+  padding: 20px !important;
+}
+
+body.employee-theme .btn-primary {
+  background: #5e6b46 !important;
+  border-color: #5e6b46 !important;
+  color: #fff !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 14px rgba(94,107,70, 0.28) !important;
+}
+body.employee-theme .btn-primary:hover {
+  background: #4c5838 !important;
+  border-color: #4c5838 !important;
+}
+

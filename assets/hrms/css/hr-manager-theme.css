@@ -1,0 +1,72 @@
+/* ============================================
+   HR Manager Portal Theme — Purr'Coffee Cafe System
+   ============================================ */
+
+body.hr-manager-theme {
+  --hrm-font-heading: 'Inter', sans-serif;
+  --hrm-font-body: 'Inter', sans-serif;
+
+  --hrm-blue: #5e6b46;
+  --hrm-blue-light: #7d8b62;
+  --hrm-navy: #2a1810;
+  --hrm-navy-deep: #1d100a;
+  --hrm-ink: #2a1810;
+  --hrm-ink-soft: #7a6558;
+  --hrm-ink-faint: #7a6558;
+
+  --hrm-success: #16a34a;
+  --hrm-success-soft: rgba(22, 163, 74, 0.12);
+  --hrm-warning: #d97706;
+  --hrm-warning-soft: rgba(217, 119, 6, 0.12);
+  --hrm-danger: #dc2626;
+  --hrm-danger-soft: rgba(220, 38, 38, 0.12);
+
+  --hrm-glass: #ffffff;
+  --hrm-glass-strong: #eef1e4;
+  --hrm-glass-border: #e6d8c5;
+  --hrm-glass-tint: rgba(94,107,70, 0.05);
+
+  --hrm-radius-sm: 10px;
+  --hrm-radius: 16px;
+  --hrm-radius-lg: 22px;
+  --hrm-shadow: 0 4px 18px rgba(120,90,60, 0.08);
+  --hrm-shadow-lg: 0 10px 30px rgba(120,90,60, 0.12);
+  --hrm-shadow-glow: 0 0 0 1px rgba(94,107,70, 0.15), 0 14px 34px rgba(94,107,70, 0.20);
+
+  background: var(--bg-canvas, #f5ebdd) !important;
+  color: var(--hrm-ink) !important;
+  font-family: var(--hrm-font-body);
+  min-height: 100vh;
+}
+
+body.hr-manager-theme .app-navbar {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e6d8c5 !important;
+  box-shadow: 0 2px 14px rgba(120,90,60, 0.07) !important;
+}
+
+body.hr-manager-theme .dashboard-stat-card {
+  background: #ffffff !important;
+  border: 1px solid #e6d8c5 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 4px 18px rgba(120,90,60, 0.07) !important;
+  padding: 20px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+body.hr-manager-theme .dashboard-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(120,90,60, 0.14) !important;
+}
+
+body.hr-manager-theme .btn-primary {
+  background: #5e6b46 !important;
+  border-color: #5e6b46 !important;
+  color: #fff !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 14px rgba(94,107,70, 0.28) !important;
+}
+body.hr-manager-theme .btn-primary:hover {
+  background: #4c5838 !important;
+  border-color: #4c5838 !important;
+}
+

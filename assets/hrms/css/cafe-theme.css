@@ -1,0 +1,61 @@
+/* ============================================
+   Cafe Ops Theme (Cashier / Inventory Staff / Finance)
+   Purr'Coffee Warm Cafe Aesthetic
+   ============================================ */
+
+body.cafe-theme {
+  --cafe-navy: #2a1810;
+  --cafe-navy-deep: #1d100a;
+  --cafe-blue: #5e6b46;
+  --cafe-blue-light: #7d8b62;
+  --cafe-blue-soft: #eef1e4;
+}
+
+body.cafe-theme .app-navbar {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e6d8c5 !important;
+  box-shadow: 0 2px 14px rgba(120,90,60, 0.07) !important;
+}
+
+body.cafe-theme .app-navbar .badge.bg-light {
+  background: #eef1e4 !important;
+  color: #5e6b46 !important;
+  border: 1px solid rgba(94,107,70, 0.25) !important;
+}
+
+body.cafe-theme .app-navbar .badge.bg-info {
+  background: #eef1e4 !important;
+  color: #5e6b46 !important;
+  border: 1px solid rgba(94,107,70, 0.25) !important;
+}
+
+body.cafe-theme .app-sidebar .nav-link.active {
+  background: #5e6b46 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(94,107,70, 0.28) !important;
+}
+
+body.cafe-theme .app-sidebar .nav-link.active i {
+  color: #ffffff !important;
+}
+
+body.cafe-theme .app-sidebar .nav-link:hover {
+  background: #eef1e4 !important;
+  color: #5e6b46 !important;
+}
+
+body.cafe-theme .sidebar-group-label {
+  color: #7a6558 !important;
+  opacity: 0.9;
+}
+
+body.cafe-theme .sidebar-footer {
+  color: #7a6558 !important;
+}
+body.cafe-theme .sidebar-footer i { color: #5e6b46 !important; }
+
+body.cafe-theme .modal-content {
+  background: #ffffff !important;
+  border: 1px solid #e6d8c5 !important;
+  border-radius: 24px !important;
+}

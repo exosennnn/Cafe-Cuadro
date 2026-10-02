@@ -1,0 +1,115 @@
+/* ============================================
+   Owner Portal — Purr'Coffee Theme
+   Aligned with the Unified Cafe Design System
+   ============================================ */
+
+body.owner-theme {
+  --ob-bg-1: #f5ebdd;
+  --ob-bg-2: #fbf6ee;
+  --ob-bg-3: #f5ebdd;
+  --ob-glass: #ffffff;
+  --ob-glass-strong: #eef1e4;
+  --ob-glass-border: #e6d8c5;
+  --ob-blue: #5e6b46;
+  --ob-blue-soft: #7d8b62;
+  --ob-cyan: #5e6b46;
+  --ob-indigo: #4c5838;
+  --ob-violet: #5e6b46;
+  --ob-text: #2a1810;
+  --ob-text-soft: #7a6558;
+  --ob-text-faint: #7a6558;
+  --ob-success: #16a34a;
+  --ob-warning: #d97706;
+  --ob-danger: #dc2626;
+  --ob-radius: 22px;
+  --ob-shadow: 0 4px 18px rgba(120,90,60, 0.08);
+  --ob-shadow-glow: 0 0 0 1px rgba(94,107,70, 0.15), 0 10px 40px rgba(94,107,70, 0.18);
+
+  background: var(--bg-canvas, #f5ebdd) !important;
+  color: var(--ob-text) !important;
+  min-height: 100vh;
+}
+
+body.owner-theme .app-navbar {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e6d8c5 !important;
+  box-shadow: 0 2px 14px rgba(120,90,60, 0.07) !important;
+}
+body.owner-theme .navbar-brand {
+  color: #2a1810 !important;
+}
+
+/* Dashboard KPI stat cards */
+body.owner-theme .dashboard-stat-card {
+  background: #ffffff !important;
+  border: 1px solid #e6d8c5 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 4px 18px rgba(120,90,60, 0.07) !important;
+  color: #2a1810 !important;
+  padding: 20px 22px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+body.owner-theme .dashboard-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(120,90,60, 0.15) !important;
+}
+
+body.owner-theme .stat-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+body.owner-theme .badge-mocha { background: #efe2cf !important; color: #3b241a !important; border: 1px solid #e6d8c5 !important; }
+body.owner-theme .badge-matcha { background: #dcfce7 !important; color: #166534 !important; border: 1px solid #bbf7d0 !important; }
+body.owner-theme .badge-caramel { background: #fef3c7 !important; color: #92400e !important; border: 1px solid #fde68a !important; }
+body.owner-theme .badge-terracotta { background: #eef1e4 !important; color: #4c5838 !important; border: 1px solid rgba(94,107,70, 0.3) !important; }
+
+/* Tables */
+body.owner-theme .table { color: #2a1810 !important; }
+body.owner-theme .table thead { background: #fbf6ee !important; }
+body.owner-theme .table thead th { color: #2a1810 !important; }
+body.owner-theme .table td, body.owner-theme .table th {
+  border-color: #e6d8c5 !important;
+  color: #2a1810 !important;
+}
+body.owner-theme .table-hover tbody tr:hover { background-color: #fbf6ee !important; }
+
+/* Buttons */
+body.owner-theme .btn-primary {
+  background: #5e6b46 !important;
+  border-color: #5e6b46 !important;
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 14px rgba(94,107,70, 0.28) !important;
+}
+body.owner-theme .btn-primary:hover {
+  background: #4c5838 !important;
+  border-color: #4c5838 !important;
+  box-shadow: 0 6px 20px rgba(94,107,70, 0.38) !important;
+}
+body.owner-theme .btn-outline-primary {
+  color: #5e6b46 !important;
+  border: 1.5px solid #5e6b46 !important;
+  border-radius: 50px !important;
+}
+body.owner-theme .btn-outline-primary:hover {
+  background: #5e6b46 !important;
+  color: #fff !important;
+}
+
+/* Forms */
+body.owner-theme .form-control, body.owner-theme .form-select {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e6d8c5 !important;
+  color: #2a1810 !important;
+  border-radius: 14px !important;
+}
+body.owner-theme .form-control:focus, body.owner-theme .form-select:focus {
+  border-color: #5e6b46 !important;
+  box-shadow: 0 0 0 0.2rem rgba(94,107,70, 0.2) !important;
+}

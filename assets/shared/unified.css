@@ -1,0 +1,946 @@
+/* ==========================================================================
+   UNIFIED CAFE DESIGN SYSTEM — Modern Purr'Coffee Aesthetic
+   Palette: Soft Warm Cream Canvas, Espresso Dark & Warm Terracotta
+   Fonts: DM Sans / Inter
+   Surfaces: Clean White, Rounded 22px Cards, Pill Buttons & Tabs
+   ========================================================================== */
+
+:root {
+  /* Brand Accent Colors */
+  --primary: #5e6b46;
+  --primary-hover: #4c5838;
+  --primary-active: #3f4a2e;
+  --primary-dark: #3d4a2c;
+  --primary-light: #eef1e4;
+  --primary-subtle: #f4f6ec;
+  --primary-glow: rgba(94,107,70, 0.28);
+
+  /* Contrast / Dark Accent */
+  --dark-roast: #2a1810;
+  --dark-roast-surface: #3b241a;
+  
+  /* Backgrounds & Canvas */
+  --bg-canvas: #f5ebdd;
+  --surface-white: #ffffff;
+  --surface-cream: #fbf6ee;
+  --surface-pill: #efe2cf;
+
+  /* Typography / Inks */
+  --ink: #2a1810;
+  --ink-secondary: #5a4638;
+  --ink-soft: #7a6558;
+  --ink-muted: #7a6558;
+
+  /* Borders & Dividers */
+  --border-warm: #e6d8c5;
+  --border-subtle: #efe2cf;
+  --border-focus: #5e6b46;
+
+  /* Feedback Colors (High-Contrast & Harmonious) */
+  --success: #16a34a;
+  --success-soft: #dcfce7;
+  --warning: #d97706;
+  --warning-soft: #fef3c7;
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+  --info: #5e6b46;
+  --info-soft: #eef1e4;
+
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-card: 22px;
+  --radius-pill: 50px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(120,90,60, 0.05);
+  --shadow-card: 0 8px 24px rgba(120,90,60, 0.08);
+  --shadow-hover: 0 14px 34px rgba(120,90,60, 0.16);
+  --shadow-dropdown: 0 12px 36px rgba(0, 0, 0, 0.09);
+
+  /* Fonts */
+  --font-brand: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Override Bootstrap 5 CSS variables to use cafe palette (affects text-primary, bg-primary, etc.) */
+:root {
+  --bs-primary: #5e6b46;
+  --bs-primary-rgb: 94, 107, 70;
+  --bs-link-color: #5e6b46;
+  --bs-link-hover-color: #4c5838;
+  --bs-link-color-rgb: 94, 107, 70;
+  --bs-focus-ring-color: rgba(94,107,70, 0.25);
+}
+
+/* text-primary / bg-primary utility overrides */
+.text-primary { color: var(--primary) !important; }
+
+/* ==========================================================================
+   GLOBAL BASE & CANVAS (Applied to All Roles & Pages)
+   ========================================================================== */
+
+body,
+body.owner-theme,
+body.cafe-theme,
+body.hr-manager-theme,
+body.hr-staff-theme,
+body.employee-manager-theme,
+body.employee-theme,
+body.unified-theme {
+  background-color: var(--bg-canvas) !important;
+  color: var(--ink) !important;
+  font-family: var(--font-body) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.page-title, .card-title {
+  font-family: var(--font-brand) !important;
+  color: var(--dark-roast) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--primary-hover);
+}
+
+.text-muted {
+  color: var(--ink-muted) !important;
+}
+
+/* ==========================================================================
+   APP NAVBAR (Clean, Airy Header with User Profile)
+   ========================================================================== */
+.app-navbar,
+body.owner-theme .app-navbar,
+body.cafe-theme .app-navbar,
+body.hr-manager-theme .app-navbar,
+body.hr-staff-theme .app-navbar,
+body.employee-manager-theme .app-navbar,
+body.employee-theme .app-navbar {
+  background: var(--surface-white) !important;
+  border-bottom: 1px solid var(--border-warm) !important;
+  box-shadow: 0 2px 14px rgba(120,90,60, 0.07) !important;
+  min-height: 68px;
+  padding: 0.5rem 1rem;
+}
+
+.brand-cafe-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #6f7d54, #5e6b46);
+  color: #fff;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 10px rgba(94,107,70, 0.28);
+}
+
+.navbar-brand .brand-text,
+.brand-text {
+  font-family: var(--font-brand) !important;
+  font-weight: 800 !important;
+  font-size: 1.25rem !important;
+  color: #5e6b46 !important;
+  -webkit-text-fill-color: #5e6b46 !important;
+  background: none !important;
+  letter-spacing: -0.02em;
+  display: inline-block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.sidebar-toggle-btn {
+  color: var(--dark-roast) !important;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbf6ee;
+  border: 1px solid var(--border-warm);
+  transition: all 0.18s ease;
+}
+.sidebar-toggle-btn:hover {
+  background: #eef1e4;
+  color: var(--primary) !important;
+}
+
+/* Role & Branch Badges in Navbar */
+.app-navbar .role-pill,
+.app-navbar .badge.bg-light,
+.app-navbar .badge.bg-info {
+  background: #eef1e4 !important;
+  color: #3d4a2c !important;
+  border: 1px solid rgba(94,107,70, 0.3) !important;
+  font-weight: 700 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill) !important;
+  padding: 6px 14px !important;
+}
+
+.app-navbar .branch-pill {
+  background: #efe2cf !important;
+  color: var(--dark-roast) !important;
+  border: 1px solid var(--border-warm) !important;
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 6px 14px !important;
+}
+
+/* Notification Button */
+.notif-bell-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fbf6ee;
+  border: 1px solid var(--border-warm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-roast);
+  transition: all 0.18s ease;
+}
+.notif-bell-btn:hover {
+  background: #eef1e4;
+  color: var(--primary);
+}
+
+/* User Profile Pill in Navbar (Purr'Coffee Reference Style) */
+.navbar-user-pill {
+  background: #ffffff;
+  border: 1px solid var(--border-warm);
+  border-radius: 50px;
+  padding: 4px 14px 4px 5px;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.navbar-user-pill:hover {
+  background: #fbf6ee;
+  border-color: var(--primary-glow);
+  box-shadow: 0 4px 14px rgba(94,107,70, 0.12);
+}
+.user-avatar-wrap img,
+.user-avatar-wrap .avatar-initials {
+  border-radius: 50% !important;
+  border: 2px solid #eef1e4 !important;
+}
+.navbar-user-pill .user-name {
+  font-size: 0.88rem;
+  color: var(--dark-roast) !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.navbar-user-pill .user-sub {
+  font-size: 0.72rem;
+  color: var(--ink-muted) !important;
+}
+
+/* ==========================================================================
+   APP SIDEBAR (Minimalist, Crisp White with Warm Terracotta Active)
+   ========================================================================== */
+.app-sidebar,
+body.owner-theme .app-sidebar,
+body.cafe-theme .app-sidebar,
+body.hr-manager-theme .app-sidebar,
+body.hr-staff-theme .app-sidebar,
+body.employee-manager-theme .app-sidebar,
+body.employee-theme .app-sidebar {
+  background: var(--surface-white) !important;
+  border-right: 1px solid var(--border-warm) !important;
+  box-shadow: none !important;
+  width: 260px;
+  padding-top: 12px;
+}
+
+.sidebar-group-label {
+  font-size: 0.70rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.07em !important;
+  color: var(--ink-muted) !important;
+  padding: 14px 18px 6px !important;
+  opacity: 0.9 !important;
+}
+
+.app-sidebar .nav-link {
+  color: #5a4638 !important;
+  padding: 10px 18px !important;
+  margin: 3px 12px !important;
+  border-radius: var(--radius-pill) !important;
+  font-size: 0.90rem !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative;
+}
+
+.app-sidebar .nav-link i {
+  font-size: 1.15rem !important;
+  width: 22px !important;
+  text-align: center !important;
+  color: #7a6558 !important;
+  transition: color 0.18s ease;
+}
+
+.app-sidebar .nav-link:hover {
+  background: #eef1e4 !important;
+  color: var(--primary) !important;
+  transform: translateX(3px) !important;
+}
+.app-sidebar .nav-link:hover i {
+  color: var(--primary) !important;
+}
+
+/* Active Nav Item: Warm Terracotta Pill */
+.app-sidebar .nav-link.active {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 16px rgba(94,107,70, 0.28) !important;
+  transform: none !important;
+}
+.app-sidebar .nav-link.active i {
+  color: #ffffff !important;
+}
+
+.sidebar-footer {
+  border-top: 1px solid var(--border-warm) !important;
+  padding: 14px 18px !important;
+  font-size: 0.80rem !important;
+  color: var(--ink-muted) !important;
+  background: var(--surface-white) !important;
+  font-weight: 600 !important;
+}
+.sidebar-footer i {
+  color: var(--primary) !important;
+  font-size: 1rem !important;
+}
+
+/* Content Area */
+.app-content, .main-content {
+  padding: 1.75rem !important;
+  background-color: var(--bg-canvas) !important;
+}
+
+/* ==========================================================================
+   CARDS, PANELS & CONTAINERS (Rounded 22px, Soft Warm Shadows)
+   ========================================================================== */
+.card, .panel, .dashboard-stat-card, .card-panel, .content-card,
+body.owner-theme .card, body.owner-theme .panel, body.owner-theme .dashboard-stat-card {
+  background: var(--surface-white) !important;
+  border-radius: var(--radius-card) !important;
+  border: 1px solid var(--border-warm) !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .panel:hover, .dashboard-stat-card:hover, .card-panel:hover {
+  box-shadow: var(--shadow-hover) !important;
+  border-color: #e6d8c5 !important;
+}
+
+.card-header {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border-warm) !important;
+  padding: 16px 20px !important;
+  font-weight: 700 !important;
+  color: var(--dark-roast) !important;
+}
+
+.card-body {
+  padding: 20px 22px !important;
+}
+
+/* Stat & KPI Cards */
+.stat-card, .kpi-card, .dashboard-stat-card {
+  background: var(--surface-white) !important;
+  border-radius: var(--radius-card) !important;
+  border: 1px solid var(--border-warm) !important;
+  box-shadow: var(--shadow-card) !important;
+  padding: 20px 22px !important;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.stat-card:hover, .kpi-card:hover, .dashboard-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover) !important;
+}
+.stat-card small, .kpi-card small, .dashboard-stat-card span.text-muted {
+  color: var(--ink-muted) !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+}
+.stat-card h3, .kpi-card h3, .stat-value, .dashboard-stat-card h3 {
+  color: var(--dark-roast) !important;
+  font-weight: 800 !important;
+  font-size: 1.85rem !important;
+  margin-top: 6px !important;
+  letter-spacing: -0.02em !important;
+}
+
+.stat-icon, .stat-icon-badge, .kpi-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  background: #eef1e4 !important;
+  color: var(--primary) !important;
+  border: 1px solid rgba(94,107,70, 0.2) !important;
+  flex-shrink: 0;
+}
+
+/* Gradient icon backgrounds (used in stat cards) */
+.bg-grad-green  { background: linear-gradient(135deg, #16a34a, #4ade80) !important; color: #fff !important; border: none !important; }
+.bg-grad-red    { background: linear-gradient(135deg, #dc2626, #f87171) !important; color: #fff !important; border: none !important; }
+.bg-grad-orange, .bg-grad-terracotta { background: #5e6b46 !important; color: #fff !important; border: none !important; }
+.bg-grad-blue   { background: #5e6b46 !important; color: #fff !important; border: none !important; }
+.bg-grad-mocha, .bg-grad-purple { background: linear-gradient(135deg, #8d5b4c, #b37d6f) !important; color: #fff !important; border: none !important; }
+.bg-grad-espresso { background: linear-gradient(135deg, #2a1810, #3b241a) !important; color: #fff !important; border: none !important; }
+
+/* Stat value & label helpers */
+.stat-value {
+  font-size: 1.80rem;
+  font-weight: 800;
+  color: var(--dark-roast) !important;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 4px;
+}
+.stat-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--ink-muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+}
+
+/* Badge Icon Colors (Pastel Warm Palette) */
+.badge-mocha { background-color: #efe2cf !important; color: #3b241a !important; border: 1px solid #e6d8c5 !important; }
+.badge-matcha { background-color: #dcfce7 !important; color: #166534 !important; border: 1px solid #bbf7d0 !important; }
+.badge-caramel { background-color: #fef3c7 !important; color: #92400e !important; border: 1px solid #fde68a !important; }
+.badge-terracotta { background-color: #eef1e4 !important; color: #4c5838 !important; border: 1px solid rgba(94,107,70, 0.3) !important; }
+
+/* ==========================================================================
+   BUTTONS (All Rounded Pills, Warm Terracotta, High Contrast)
+   ========================================================================== */
+.btn, .button, input[type="submit"], input[type="button"], button.btn {
+  border-radius: var(--radius-pill) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+  padding: 8px 20px;
+  transition: all 0.18s ease !important;
+}
+
+.btn-primary, .button:not(.secondary):not(.danger), button.btn-primary, .btn-brand {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: 700 !important;
+  padding: 9px 22px !important;
+  box-shadow: 0 4px 14px rgba(94,107,70, 0.25) !important;
+}
+.btn-primary:hover, .btn-primary:focus, .button:not(.secondary):not(.danger):hover, .btn-brand:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(94,107,70, 0.35) !important;
+}
+.btn-primary:active, .button:active {
+  transform: translateY(1px);
+}
+
+.btn-outline-primary {
+  border: 1.5px solid var(--primary) !important;
+  color: var(--primary) !important;
+  background: transparent !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: 700 !important;
+  padding: 8px 20px !important;
+}
+.btn-outline-primary:hover {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(94,107,70, 0.25) !important;
+}
+
+.btn-secondary, .button.secondary {
+  background-color: #ffffff !important;
+  border: 1.5px solid var(--border-warm) !important;
+  color: var(--dark-roast) !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: 600 !important;
+  padding: 8px 20px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+}
+.btn-secondary:hover, .button.secondary:hover {
+  background-color: #fbf6ee !important;
+  border-color: #cfd8bd !important;
+  color: var(--primary) !important;
+}
+
+.btn-outline-secondary {
+  border: 1.5px solid var(--border-warm) !important;
+  color: var(--dark-roast) !important;
+  background: transparent !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: 600 !important;
+}
+.btn-outline-secondary:hover {
+  background: #fbf6ee !important;
+  color: var(--primary) !important;
+  border-color: #cfd8bd !important;
+}
+
+.btn-danger, .button.danger, .danger {
+  background-color: var(--danger) !important;
+  border-color: var(--danger) !important;
+  border-radius: var(--radius-pill) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.22) !important;
+}
+.btn-danger:hover, .button.danger:hover, .danger:hover {
+  background-color: #b91c1c !important;
+  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.32) !important;
+}
+
+.btn-outline-danger {
+  border: 1.5px solid var(--danger) !important;
+  color: var(--danger) !important;
+  background: transparent !important;
+  border-radius: var(--radius-pill) !important;
+}
+.btn-outline-danger:hover {
+  background: var(--danger) !important;
+  color: #ffffff !important;
+}
+
+.btn-success {
+  background-color: var(--success) !important;
+  border-color: var(--success) !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill) !important;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.22) !important;
+}
+.btn-success:hover {
+  background-color: #15803d !important;
+}
+
+.btn-warning {
+  background-color: var(--warning) !important;
+  border-color: var(--warning) !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill) !important;
+}
+
+.btn-info {
+  background-color: #d97706 !important;
+  border-color: #d97706 !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill) !important;
+}
+
+.btn-sm {
+  padding: 6px 16px !important;
+  font-size: 0.82rem !important;
+  border-radius: var(--radius-pill) !important;
+}
+
+.btn-dark {
+  background-color: var(--dark-roast) !important;
+  border-color: var(--dark-roast) !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: 600 !important;
+}
+.btn-dark:hover {
+  background-color: #3b241a !important;
+  border-color: #3b241a !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   FORMS & INPUTS (Smooth Rounded, Warm Terracotta Focus)
+   ========================================================================== */
+.form-label, label {
+  font-weight: 600 !important;
+  font-size: 0.86rem !important;
+  color: var(--dark-roast) !important;
+  margin-bottom: 6px !important;
+}
+
+.form-control, .form-select, input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+  border-radius: 14px !important;
+  border: 1.5px solid #e6d8c5 !important;
+  background-color: #ffffff !important;
+  color: var(--ink) !important;
+  padding: 9px 14px !important;
+  font-family: var(--font-body) !important;
+  font-size: 14px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+}
+
+.form-control:focus, .form-select:focus, input:focus, select:focus, textarea:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(94,107,70, 0.20) !important;
+  outline: none !important;
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Search input with pill styling */
+.search-pill-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-pill-wrapper i {
+  position: absolute;
+  left: 18px;
+  color: var(--ink-muted);
+  font-size: 1rem;
+}
+.search-pill-input {
+  border-radius: var(--radius-pill) !important;
+  padding-left: 44px !important;
+  padding-right: 18px !important;
+  height: 46px;
+  background-color: #ffffff !important;
+  border: 1.5px solid #e6d8c5 !important;
+}
+
+/* ==========================================================================
+   TABLES (Warm Header, Crisp Dark Text, Subtle Warm Hover)
+   ========================================================================== */
+.table-responsive {
+  border-radius: 18px;
+  border: 1px solid var(--border-warm);
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.table {
+  margin-bottom: 0;
+  color: var(--ink) !important;
+}
+
+.table thead, .table thead th, .table > thead.table-light,
+body.owner-theme .table thead, body.owner-theme .table thead th {
+  background-color: #fbf6ee !important;
+  color: var(--dark-roast) !important;
+  font-weight: 700 !important;
+  font-size: 0.78rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  border-bottom: 2px solid var(--border-warm) !important;
+  padding: 14px 16px !important;
+}
+
+.table tbody tr {
+  transition: background-color 0.15s ease;
+  border-bottom: 1px solid #efe2cf;
+}
+
+.table-hover tbody tr:hover,
+.table tbody tr:hover,
+body.owner-theme .table-hover tbody tr:hover {
+  background-color: #fbf6ee !important;
+}
+
+.table td {
+  padding: 13px 16px !important;
+  vertical-align: middle;
+  color: var(--ink) !important;
+  border-bottom: 1px solid #efe2cf;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   BADGES & STATUS PILLS (High-Contrast & Readable)
+   ========================================================================== */
+.badge {
+  border-radius: var(--radius-pill) !important;
+  padding: 6px 14px !important;
+  font-weight: 700 !important;
+  font-size: 0.74rem !important;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge.bg-success, .badge-status-active, .badge-status-approved, .badge-status-accepted, .badge-status-received {
+  background-color: #dcfce7 !important;
+  color: #166534 !important;
+  border: 1px solid #bbf7d0 !important;
+}
+
+.badge-status-pending, .badge.bg-warning {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border: 1px solid #fde68a !important;
+}
+
+.badge-status-rejected, .badge-status-declined, .badge-status-inactive, .badge.bg-danger, .badge-status-cancelled {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  border: 1px solid #fecaca !important;
+}
+
+.badge.bg-info, .badge.bg-primary {
+  background-color: #eef1e4 !important;
+  color: #3d4a2c !important;
+  border: 1px solid rgba(94,107,70, 0.3) !important;
+}
+
+.badge.bg-secondary {
+  background-color: #efe2cf !important;
+  color: #5a4638 !important;
+  border: 1px solid #e6d8c5 !important;
+}
+
+.badge-role-admin, .badge-role-owner {
+  background-color: #2a1810 !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 5px 14px !important;
+  font-weight: 700 !important;
+  font-size: 0.74rem !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge-role-cashier {
+  background-color: #eef1e4 !important;
+  color: #3d4a2c !important;
+  border: 1px solid rgba(94,107,70, 0.3) !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 5px 14px !important;
+  font-weight: 700 !important;
+  font-size: 0.74rem !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge-role-inventory {
+  background-color: #efe2cf !important;
+  color: #5c4033 !important;
+  border: 1px solid #e6d8c5 !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 5px 14px !important;
+  font-weight: 700 !important;
+  font-size: 0.74rem !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ==========================================================================
+   NAV TABS & PILLS (Purr'Coffee Style)
+   ========================================================================== */
+.nav-tabs, .nav-pills {
+  border-bottom: 1px solid var(--border-warm);
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.nav-tabs .nav-link, .nav-pills .nav-link {
+  border-radius: var(--radius-pill) !important;
+  padding: 8px 18px !important;
+  border: 1px solid #e6d8c5 !important;
+  background: #ffffff !important;
+  color: #7a6558 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+}
+.nav-tabs .nav-link:hover, .nav-pills .nav-link:hover {
+  background: #eef1e4 !important;
+  color: var(--primary) !important;
+  border-color: #cfd8bd !important;
+}
+.nav-tabs .nav-link.active, .nav-pills .nav-link.active {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 4px 14px rgba(94,107,70, 0.28) !important;
+}
+
+/* ==========================================================================
+   ALERTS & FLASH MESSAGES
+   ========================================================================== */
+.alert {
+  border-radius: 16px !important;
+  padding: 14px 20px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin-bottom: 18px !important;
+}
+
+.alert-success, .alert.success {
+  background-color: #dcfce7 !important;
+  color: #166534 !important;
+  border: 1px solid #bbf7d0 !important;
+}
+
+.alert-danger, .alert-error, .alert.error {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  border: 1px solid #fecaca !important;
+}
+
+.alert-warning, .alert.warning {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border: 1px solid #fde68a !important;
+}
+
+.alert-info, .alert.info {
+  background-color: #eef1e4 !important;
+  color: #4c5838 !important;
+  border: 1px solid rgba(94,107,70, 0.25) !important;
+}
+
+/* ==========================================================================
+   MODALS & DROPDOWNS
+   ========================================================================== */
+.modal-content {
+  border-radius: 24px !important;
+  border: 1px solid var(--border-warm) !important;
+  box-shadow: 0 16px 48px rgba(42,24,16, 0.12) !important;
+  background: #ffffff !important;
+  color: var(--ink) !important;
+  overflow: hidden;
+}
+.modal-header {
+  border-bottom: 1px solid var(--border-warm) !important;
+  padding: 18px 24px !important;
+  font-weight: 700;
+  color: var(--dark-roast);
+}
+.modal-footer {
+  border-top: 1px solid var(--border-warm) !important;
+  padding: 16px 24px !important;
+}
+
+.dropdown-menu {
+  border-radius: 18px !important;
+  border: 1px solid var(--border-warm) !important;
+  box-shadow: 0 12px 36px rgba(42,24,16, 0.10) !important;
+  background: #ffffff !important;
+  padding: 6px !important;
+}
+.dropdown-item {
+  border-radius: 50px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  color: var(--dark-roast) !important;
+}
+.dropdown-item:hover {
+  background-color: #eef1e4 !important;
+  color: var(--primary) !important;
+}
+.dropdown-item.text-danger:hover {
+  background-color: #fee2e2 !important;
+  color: #dc2626 !important;
+}
+
+/* ==========================================================================
+   DATATABLES (Purr'Coffee Modern Search & Pagination)
+   ========================================================================== */
+.dataTables_wrapper .dataTables_filter input {
+  border-radius: 50px !important;
+  border: 1.5px solid #e6d8c5 !important;
+  padding: 6px 16px !important;
+  background: #ffffff !important;
+  color: var(--ink) !important;
+  font-size: 13.5px !important;
+}
+.dataTables_wrapper .dataTables_filter input:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(94,107,70, 0.20) !important;
+  outline: none;
+}
+.dataTables_wrapper .dataTables_length select {
+  border-radius: 14px !important;
+  border: 1.5px solid #e6d8c5 !important;
+  padding: 4px 10px !important;
+}
+.dataTables_wrapper .paginate_button {
+  border-radius: 50px !important;
+  border: 1px solid transparent !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 4px 12px !important;
+}
+.dataTables_wrapper .paginate_button.current,
+.dataTables_wrapper .paginate_button.current:hover {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(94,107,70, 0.28) !important;
+}
+.dataTables_wrapper .paginate_button:hover {
+  background: #eef1e4 !important;
+  color: var(--primary) !important;
+  border-color: #cfd8bd !important;
+}
+
+/* SweetAlert2 Popup Alignment */
+.swal2-popup {
+  border-radius: 26px !important;
+  padding: 24px !important;
+  font-family: var(--font-body) !important;
+}
+.swal2-confirm {
+  border-radius: 50px !important;
+  background-color: var(--primary) !important;
+  box-shadow: 0 4px 14px rgba(94,107,70, 0.28) !important;
+}
+.swal2-cancel {
+  border-radius: 50px !important;
+}
+
+/* Sidebar Collapsed Overrides */
+.app-sidebar.collapsed { width: 54px !important; }
+.app-sidebar.collapsed .nav-link { justify-content: center !important; padding: 10px 0 !important; margin: 4px 6px !important; }
+.app-sidebar.collapsed .nav-link span, .app-sidebar.collapsed .sidebar-group-label, .app-sidebar.collapsed .sidebar-footer span { display: none !important; }
+.app-sidebar.collapsed .nav-link i { width: auto !important; font-size: 1.15rem !important; margin: 0 !important; }
+.app-sidebar.collapsed .nav-link:hover { transform: none !important; }
+
+

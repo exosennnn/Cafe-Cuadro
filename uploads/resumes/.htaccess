@@ -1,0 +1,13 @@
+# Para sa mga na-upload na files: walang listing, at hindi kailanman ie-execute bilang code.
+Options -Indexes
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .phar
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8 .phar
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|php8|phar|pl|py|cgi|asp|aspx|exe|sh|html?|svg)$">
+    Require all denied
+</FilesMatch>
